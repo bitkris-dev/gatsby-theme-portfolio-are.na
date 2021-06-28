@@ -1,7 +1,6 @@
 /** @jsx jsx **/
 import { jsx, Styled } from 'theme-ui'
 import Img from 'gatsby-image'
-import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import ProjectsGrid from '../components/ProjectsGrid'
