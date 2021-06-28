@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 import ProjectsGridItem from './ProjectsGridItem'
 
-export default function ProjectsGrid({ project = [] }) {
+export default function ProjectsGrid({ projects = [] }) {
   return (
     <section
       sx={{
