@@ -6,9 +6,6 @@ module.exports = () => {
       title: 'gatsby-theme-portfolio-are.na',
     },
     plugins: [
-      {
-        resolve: 'gatsby-source-are.na',
-      },
       'gatsby-plugin-theme-ui',
       'gatsby-plugin-react-helmet',
       'gatsby-plugin-sharp',
