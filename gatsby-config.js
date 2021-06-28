@@ -1,6 +1,6 @@
 const path = require('path')
 
-module.exports = ({ accessToken, channelSlug }) => {
+module.exports = () => {
   return {
     siteMetadata: {
       title: 'gatsby-theme-portfolio-are.na',
@@ -8,10 +8,6 @@ module.exports = ({ accessToken, channelSlug }) => {
     plugins: [
       {
         resolve: 'gatsby-source-are.na',
-        options: {
-          accessToken,
-          channelSlugs: [channelSlug],
-        },
       },
       'gatsby-plugin-theme-ui',
       'gatsby-plugin-react-helmet',
