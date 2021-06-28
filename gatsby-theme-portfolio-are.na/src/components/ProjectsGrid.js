@@ -4,45 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 import ProjectsGridItem from './ProjectsGridItem'
 
-export default function ProjectsGrid() {
-  const data = useStaticQuery(graphql`
-    query {
-      allArenaChannel {
-        edges {
-          node {
-            children {
-              __typename
-              ... on ArenaInnerChannel {
-                title
-                slug
-                metadata {
-                  description
-                }
-                children {
-                  __typename
-                  ... on ArenaBlock {
-                    title
-                    image {
-                      childImageSharp {
-                        fluid(maxWidth: 800, maxHeight: 500) {
-                          ...GatsbyImageSharpFluid_noBase64
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  const projects = data.allArenaChannel.edges[0].node.children.filter(
-    item => item.__typename === 'ArenaInnerChannel'
-  )
-
+export default function ProjectsGrid({ project = [] }) {
   return (
     <section
       sx={{

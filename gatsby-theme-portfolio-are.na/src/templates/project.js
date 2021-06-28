@@ -13,7 +13,7 @@ export default function ProjectTemplate(props) {
     title,
     metadata: { description },
     children,
-  } = props.data.arenaInnerChannel
+  } = props || {}
   const backgroundImageColor = useImageBackgroundColor()
 
   return (
@@ -21,7 +21,7 @@ export default function ProjectTemplate(props) {
       <SEO title={title} description={description} />
       <section sx={{ display: 'grid', gridAutoFlow: 'row', gridGap: 4 }}>
         {children
-          .filter(item => item.__typename === 'ArenaBlock')
+          .filter((item) => item.__typename === 'ArenaBlock')
           .map((item, index) => {
             return (
               <div className="margin-bottom-s" key={index}>
@@ -40,26 +40,3 @@ export default function ProjectTemplate(props) {
     </Layout>
   )
 }
-
-export const pageQuery = graphql`
-  query($slug: String!) {
-    arenaInnerChannel(slug: { eq: $slug }) {
-      title
-      metadata {
-        description
-      }
-      children {
-        __typename
-        ... on ArenaBlock {
-          image {
-            childImageSharp {
-              fluid(maxWidth: 1280) {
-                ...GatsbyImageSharpFluid_noBase64
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
