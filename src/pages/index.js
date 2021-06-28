@@ -11,18 +11,18 @@ export default function HomePage(props) {
     query {
       site {
         siteMetadata {
-          indexTitle
-          indexDescription
+          title
+          description
         }
       }
     }
   `)
 
-  const { indexTitle, indexDescription } = data.site.siteMetadata
+  const { title, description } = data.site.siteMetadata
 
   return (
-    <Layout title={indexTitle} description={indexDescription}>
-      <SEO description={indexTitle} />
+    <Layout title={title} description={description}>
+      <SEO description={description} />
       <ProjectsGrid />
     </Layout>
   )
